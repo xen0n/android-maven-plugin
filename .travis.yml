@@ -3,7 +3,7 @@ jdk: oraclejdk7
 env:
   matrix:
     # NOTE: this should track Android SDK updates
-    - ANDROID_TARGET=android-22  ANDROID_ABI=armeabi-v7a
+    - ANDROID_TARGET=android-21  ANDROID_ABI=armeabi-v7a
 before_install:
   # Install base Android SDK
   - ANDROID_SDK_REV=24.1.2
@@ -33,10 +33,10 @@ before_install:
   - echo y | android update sdk --filter build-tools-$ANDROID_BUILD_TOOLS_REV --no-ui --force --all
   - echo y | android update sdk --filter android-19 --no-ui --force --all
   - echo y | android update sdk --filter sys-img-$ANDROID_ABI-android-19 --no-ui --force --all
-  - echo y | android update sdk --filter android-21 --no-ui --force --all
-  - echo y | android update sdk --filter sys-img-$ANDROID_ABI-android-21 --no-ui --force --all
-  #- echo y | android update sdk --filter $ANDROID_TARGET --no-ui --force --all
-  #- echo y | android update sdk --filter sys-img-$ANDROID_ABI-$ANDROID_TARGET --no-ui --force --all
+  #- echo y | android update sdk --filter android-21 --no-ui --force --all
+  #- echo y | android update sdk --filter sys-img-$ANDROID_ABI-android-21 --no-ui --force --all
+  - echo y | android update sdk --filter $ANDROID_TARGET --no-ui --force --all
+  - echo y | android update sdk --filter sys-img-$ANDROID_ABI-$ANDROID_TARGET --no-ui --force --all
 
   # Create and start emulator
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
