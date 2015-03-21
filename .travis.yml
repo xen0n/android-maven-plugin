@@ -35,8 +35,8 @@ before_install:
   - echo y | android update sdk --filter sys-img-$ANDROID_ABI-android-19 --no-ui --force --all
   - echo y | android update sdk --filter android-21 --no-ui --force --all
   - echo y | android update sdk --filter sys-img-$ANDROID_ABI-android-21 --no-ui --force --all
-  - echo y | android update sdk --filter $ANDROID_TARGET --no-ui --force --all
-  - echo y | android update sdk --filter sys-img-$ANDROID_ABI-$ANDROID_TARGET --no-ui --force --all
+  #- echo y | android update sdk --filter $ANDROID_TARGET --no-ui --force --all
+  #- echo y | android update sdk --filter sys-img-$ANDROID_ABI-$ANDROID_TARGET --no-ui --force --all
 
   # Create and start emulator
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
